@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Cozette:pixelsize=12";
+static char *font = "Cherry:pixelsize=12";
 static int borderpx = 10;
 
 /*
