@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Cozette:pixelsize=12";
+static char *font = "FiraCode:pixelsize=13";
 static int borderpx = 10;
 
 /*
@@ -93,32 +93,82 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
+/* bg opacity */
+float alpha = 0.7;
+
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 
+ // Custom Theme
+ /* 8 normal colors */
+ [0] = "#030205", /* black   */
+ [1] = "#bf616a", /* red     */
+ [2] = "#339834", /* green   */
+ [3] = "#989833", /* yellow  */
+ [4] = "#343398", /* blue    */
+ [6] = "#983398", /* magenta */
+ [5] = "#336598", /* cyan    */
+ [7] = "#f9f5fc", /* white   */
+
+ /* 8 bright colors */
+ [8]  = "#06030a", /* black   */
+ [9]  = "#bf616a", /* red     */
+ [10] = "#67cc68", /* green   */
+ [11] = "#cccc67", /* yellow  */
+ [12] = "#6867cc", /* blue    */
+ [14] = "#cc67cc", /* magenta */
+ [13] = "#6799cc", /* cyan    */
+ [15] = "#fcfafd", /* white   */
+
+ // Nord Theme
+ /* 8 normal colors */
+ //[0] = "#2e3440", /* black   */
+ //[1] = "#bf616a", /* red     */
+ //[6] = "#a3be8c", /* green   */
+ //[3] = "#ebcb8b", /* yellow  */
+ //[4] = "#5e81ac", /* blue    */
+ //[5] = "#b48ead", /* magenta */
+ //[2] = "#88c0d0", /* cyan    */
+ //[7] = "#eceff4", /* white   */
+
+ ///* 8 bright colors */
+ //[8]  = "#2e3440", /* black   */
+ //[9]  = "#bf616a", /* red     */
+ //[14] = "#a3be8c", /* green   */
+ //[11] = "#ebcb8b", /* yellow  */
+ //[12] = "#5e81ac", /* blue    */
+ //[13] = "#b48ead", /* magenta */
+ //[10] = "#88c0d0", /* cyan    */
+ //[15] = "#eceff4", /* white   */
+
+ ///* special colors */
+ //[256] = "#282a36", /* background */
+ //[257] = "#f8f8f2", /* foreground */
+
+ // Dracula Theme
   /* 8 normal colors */
-   [0] = "#000000", /* black   */
-   [1] = "#ff5555", /* red     */
-   [2] = "#50fa7b", /* green   */
-   [3] = "#f1fa8c", /* yellow  */
-   [6] = "#bd93f9", /* blue    */
-   [5] = "#ff79c6", /* magenta */
-   [4] = "#8be9fd", /* cyan    */
-   [7] = "#bbbbbb", /* white   */
+   //[0] = "#000000", /* black   */
+   //[1] = "#ff5555", /* red     */
+   //[2] = "#50fa7b", /* green   */
+   //[3] = "#f1fa8c", /* yellow  */
+   //[6] = "#bd93f9", /* blue    */
+   //[5] = "#ff79c6", /* magenta */
+   //[4] = "#8be9fd", /* cyan    */
+   //[7] = "#bbbbbb", /* white   */
  
-   /* 8 bright colors */
-   [8]  = "#44475a", /* black   */
-   [9]  = "#ff5555", /* red     */
-   [10] = "#50fa7b", /* green   */
-   [11] = "#f1fa8c", /* yellow  */
-   [14] = "#bd93f9", /* blue    */
-   [13] = "#ff79c6", /* magenta */
-   [12] = "#8be9fd", /* cyan    */
-   [15] = "#ffffff", /* white   */
+   ///* 8 bright colors */
+   //[8]  = "#44475a", /* black   */
+   //[9]  = "#ff5555", /* red     */
+   //[10] = "#50fa7b", /* green   */
+   //[11] = "#f1fa8c", /* yellow  */
+   //[14] = "#bd93f9", /* blue    */
+   //[13] = "#ff79c6", /* magenta */
+   //[12] = "#8be9fd", /* cyan    */
+   //[15] = "#ffffff", /* white   */
  
-   /* special colors */
-   [256] = "#282a36", /* background */
-   [257] = "#f8f8f2", /* foreground */
+   ///* special colors */
+   //[256] = "#282a36", /* background */
+   //[257] = "#f8f8f2", /* foreground */
 };
 
 /*
@@ -129,6 +179,7 @@ unsigned int defaultfg = 15;
 unsigned int defaultbg = 0;
 static unsigned int defaultcs = 15;
 static unsigned int defaultrcs = 257;
+unsigned int bg = 0, bgUnfocused = 0;
 
 /*
  * Default shape of cursor
